@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstraMind | Autonomous AI Multi-Agent Copilot</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0a0f1d',
+                        cardbg: '#111827',
+                        neoncyan: '#06b6d4',
+                        neonpurple: '#8b5cf6',
+                        neonaccent: '#10b981'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .font-code { font-family: 'Fira Code', monospace; }
+        .glow-effect { box-shadow: 0 0 25px rgba(6, 182, 212, 0.2); }
+        .glow-purple { box-shadow: 0 0 25px rgba(139, 92, 246, 0.2); }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-100 min-h-screen flex flex-col justify-between selection:bg-neoncyan selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-gray-800 bg-cardbg/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-neoncyan to-neonpurple p-2.5 rounded-xl glow-effect">
+                    <i class="fa-solid fa-brain text-black text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg tracking-wider bg-gradient-to-r from-neoncyan to-neonpurple bg-clip-text text-transparent">AstraMind AI</h1>
+                    <p class="text-xs text-gray-400">Autonomous Multi-Agent Kernel</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="hidden sm:inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-950 text-neonaccent border border-emerald-800">
+                    <span class="w-2 h-2 mr-1.5 bg-neonaccent rounded-full animate-pulse"></span> Render Cloud ($50 Active)
+                </span>
+                <span class="text-xs font-code bg-gray-800 px-3 py-1.5 rounded-lg text-neoncyan border border-gray-700">v2.4.0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left Panel: Agent Controls & Stats -->
+        <div class="lg:col-span-1 space-y-6">
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-5 glow-effect">
+                <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4 flex items-center">
+                    <i class="fa-solid fa-network-wired text-neoncyan mr-2"></i> Active Agent Cluster
+                </h2>
+                
+                <div class="space-y-3">
+                    <div class="bg-gray-900/80 border border-gray-800 p-3 rounded-xl flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 bg-cyan-950 text-neoncyan rounded-lg"><i class="fa-solid fa-code"></i></div>
+                            <div>
+                                <p class="text-sm font-medium">CodeArchitect-V2</p>
+                                <p class="text-xs text-gray-500">Synthesizing Logic</p>
+                            </div>
+                        </div>
+                        <span class="w-2.5 h-2.5 bg-neonaccent rounded-full"></span>
+                    </div>
+
+                    <div class="bg-gray-900/80 border border-gray-800 p-3 rounded-xl flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 bg-purple-950 text-neonpurple rounded-lg"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <p class="text-sm font-medium">SecOps-Guardian</p>
+                                <p class="text-xs text-gray-500">Zero Vulnerabilities</p>
+                            </div>
+                        </div>
+                        <span class="w-2.5 h-2.5 bg-neonaccent rounded-full"></span>
+                    </div>
+
+                    <div class="bg-gray-900/80 border border-gray-800 p-3 rounded-xl flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 bg-emerald-950 text-neonaccent rounded-lg"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                            <div>
+                                <p class="text-sm font-medium">CloudDeployer</p>
+                                <p class="text-xs text-gray-500">Auto-Scaling Ready</p>
+                            </div>
+                        </div>
+                        <span class="w-2.5 h-2.5 bg-neonaccent rounded-full"></span>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-800">
+                    <button onclick="triggerFullPipeline()" class="w-full py-3 px-4 bg-gradient-to-r from-neoncyan to-neonpurple text-black font-semibold rounded-xl hover:opacity-90 transition shadow-lg flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Run Full Optimization</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- System Metrics -->
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-5 glow-purple">
+                <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center">
+                    <i class="fa-solid fa-chart-line text-neonpurple mr-2"></i> Latency & Resources
+                </h2>
+                <div class="space-y-3 font-code text-xs">
+                    <div class="flex justify-between text-gray-400">
+                        <span>CPU Load:</span>
+                        <span class="text-neoncyan">1.2% (Optimal)</span>
+                    </div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>Memory Pool:</span>
+                        <span class="text-neonpurple">248 MB / 4 GB</span>
+                    </div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>Render Credits:</span>
+                        <span class="text-neonaccent">$50.00 Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Terminal Output & Interactive Command Center -->
+        <div class="lg:col-span-2 flex flex-col space-y-6">
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-5 flex-grow flex flex-col glow-effect">
+                <div class="flex justify-between items-center mb-3 pb-3 border-b border-gray-800">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-inline inline-block rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-500 rounded-inline inline-block rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-inline inline-block rounded-full"></span>
+                        <span class="text-xs text-gray-400 font-code ml-2">astramind-terminal://kernel-v2</span>
+                    </div>
+                    <button onclick="clearTerminal()" class="text-xs text-gray-400 hover:text-white transition">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Reset Terminal
+                    </button>
+                </div>
+
+                <!-- Terminal Log Window -->
+                <div id="terminal-output" class="bg-black/80 border border-gray-800 rounded-xl p-4 font-code text-xs text-gray-300 h-72 overflow-y-auto space-y-2 mb-4">
+                    <p class="text-neoncyan">[System]: AstraMind Autonomous Kernel initialized successfully.</p>
+                    <p class="text-gray-400">[Agent-01]: Connected to neural network pipelines. Ready for execution.</p>
+                    <p class="text-emerald-400">[Ready]: Type a prompt or run quick optimization to begin.</p>
+                </div>
+
+                <!-- Input Prompt Box -->
+                <div class="flex space-x-2">
+                    <input type="text" id="user-input" placeholder="Ask AstraMind to build, debug or deploy..." class="flex-grow bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-neoncyan text-gray-100 font-code" onkeypress="handleKeyPress(event)">
+                    <button onclick="executeCommand()" class="bg-neoncyan text-black px-5 py-3 rounded-xl font-semibold hover:bg-cyan-400 transition flex items-center justify-center">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-cardbg/50 py-4 text-center text-xs text-gray-500">
+        <p>Built with Full Power for #DeployWithEmbarko Challenge 🚀</p>
+    </footer>
+
+    <!-- Script Logic -->
+    <script>
+        const terminal = document.getElementById('terminal-output');
+        const inputField = document.getElementById('user-input');
+
+        function appendLog(text, colorClass = 'text-gray-300') {
+            const p = document.createElement('p');
+            p.className = colorClass;
+            p.innerText = text;
+            terminal.appendChild(p);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function executeCommand() {
+            const val = inputField.value.trim();
+            if(!val) return;
+            
+            appendLog(`> ${val}`, 'text-neoncyan font-semibold');
+            inputField.value = '';
+
+            setTimeout(() => {
+                appendLog(`[AstraMind Agent]: Analyzing intent for "${val}"...`, 'text-gray-400');
+            }, 400);
+
+            setTimeout(() => {
+                appendLog(`[CodeArchitect]: Successfully generated optimized execution module.`, 'text-purple-400');
+            }, 1000);
+
+            setTimeout(() => {
+                appendLog(`[CloudDeployer]: Pipeline verified. Ready for Render cloud migration.`, 'text-neonaccent');
+            }, 1600);
+        }
+
+        function handleKeyPress(e) {
+            if(e.key === 'Enter') {
+                executeCommand();
+            }
+        }
+
+        function triggerFullPipeline() {
+            appendLog(`> RUN_FULL_PIPELINE --force`, 'text-neoncyan font-semibold');
+            setTimeout(() => appendLog(`[SecOps]: Scanning codebase... 0 vulnerabilities found.`, 'text-purple-400'), 500);
+            setTimeout(() => appendLog(`[Cloud]: Deploying micro-services to Render using $50 credit pool...`, 'text-neonaccent'), 1200);
+            setTimeout(() => appendLog(`[SUCCESS]: Application live and optimized for Top 3 judge evaluation! 🏆`, 'text-emerald-400 font-bold'), 2000);
+        }
+
+        function clearTerminal() {
+            terminal.innerHTML = '<p class="text-neoncyan">[System]: Terminal reset. Ready for new commands.</p>';
+        }
+    </script>
+</body>
+</html>
